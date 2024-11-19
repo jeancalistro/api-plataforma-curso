@@ -21,9 +21,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags:
-            - ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_DOCKERHUB_NAME }}:latest
-            - ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_DOCKERHUB_NAME }}:${{ github.run_number }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_DOCKERHUB_NAME }}:latest, ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_DOCKERHUB_NAME }}:${{ github.run_number }}
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.28.0
         with:
