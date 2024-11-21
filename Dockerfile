@@ -6,6 +6,7 @@ COPY ./src/ ./src/
 COPY ./.mvn/ ./.mvn/
 COPY pom.xml mvnw ./
 
+RUN chmod +x mvnw
 RUN ./mvnw package
 
 CMD ["java", "-jar", "target/api-plataforma-curso-0.0.1-SNAPSHOT.jar"]
