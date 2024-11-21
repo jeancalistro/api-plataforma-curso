@@ -8,9 +8,12 @@ on:
 jobs:
   release:
     name: Build and Push Docker Image
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
       - name: Login Docker Hub
         uses: docker/login-action@v3
         with:
